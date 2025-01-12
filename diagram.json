@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "author": "Taylan Mayckon",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": -3.25,
+        "left": 3.55,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 111.6,
+        "left": -111.4,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 167.15,
+        "left": -76.8,
+        "attrs": { "value": "330" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
+      [ "r1:1", "led1:C", "black", [ "v0", "h-19.2" ] ],
+      [ "pico:GP12", "led1:A", "red", [ "h-96", "v0.04" ] ]
+    ],
+    "dependencies": {}
+  }
